@@ -1,5 +1,6 @@
 package sample;
 
+
 import org.hibernate.Session;
 
 public class HibernateDAO<T> {
