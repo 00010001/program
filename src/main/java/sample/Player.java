@@ -10,4 +10,11 @@ public class Player {
     private String firstName;
     private String lastName;
     private String username;
+
+    public Player() {
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
