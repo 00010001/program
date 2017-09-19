@@ -1,6 +1,7 @@
 package sample;
 
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,9 +16,9 @@ public class Match {
     boolean finished;
     int round;
     LocalDateTime occurenceDateTime;
-    @ManyToMany
+    @ManyToOne
     private Player player1;
-    @ManyToMany
+    @ManyToOne
     private Player player2;
 
 }
