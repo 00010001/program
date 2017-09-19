@@ -1,6 +1,9 @@
 package sample;
 
+import javax.persistence.ManyToMany;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by RENT on 2017-09-19.
@@ -12,6 +15,9 @@ public class Match {
     boolean finished;
     int round;
     LocalDateTime occurenceDateTime;
-    String player1;
-    String player2;
+    @ManyToMany
+    private Player player1;
+    @ManyToMany
+    private Player player2;
+
 }
