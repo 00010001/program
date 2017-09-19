@@ -17,4 +17,11 @@ public class Player {
     @ManyToMany
     private Set<Match> participatedMatches = new HashSet<>();
 
+
+    public Player() {
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
