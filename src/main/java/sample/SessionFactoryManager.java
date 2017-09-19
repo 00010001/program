@@ -15,7 +15,7 @@ public class SessionFactoryManager {
                     // Ustawienia dotyczące połączenia z bazą (należy zmienić tak, aby odpowiadało lokalnej konfiguracji!).
                     .applySetting("hibernate.connection.url", "jdbc:mysql://localhost:3306/program_db")
                     .applySetting("hibernate.connection.username", "root")
-                    .applySetting("hibernate.connection.password", "123qwe")
+                    .applySetting("hibernate.connection.password", "password")
                     .applySetting("hibernate.connection.driver", "com.mysql.jdbc.Driver")
                     // Chcemy, aby tabele były tworzone korzystając z silnika innoDB - on obsługuje transakcje,
                     // domyślnie hibernate tworzy je korzystając z myIsam, który transakcji nie obsługuje.
@@ -28,9 +28,9 @@ public class SessionFactoryManager {
                     // Zapytania będą "upiększone", jęśli chodzi o formatowanie.
                     .applySetting("hibernate.format_sql", "true")
                     .build();
-            MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
+            MetadataSources metadataSources = new MetadataSources(standardServiceRegistry)
+                    .addAnnotatedClass(Player.class);
             // Dodajemy klasy - encje
-
             Metadata metadata = metadataSources.buildMetadata();
             sessionFactory = metadata.buildSessionFactory();
         }
