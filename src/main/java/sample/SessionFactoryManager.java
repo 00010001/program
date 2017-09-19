@@ -1,10 +1,10 @@
 package sample;
 
-        import org.hibernate.SessionFactory;
-        import org.hibernate.boot.Metadata;
-        import org.hibernate.boot.MetadataSources;
-        import org.hibernate.boot.registry.StandardServiceRegistry;
-        import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class SessionFactoryManager {
     private static SessionFactory sessionFactory;
@@ -29,7 +29,7 @@ public class SessionFactoryManager {
                     .applySetting("hibernate.format_sql", "true")
                     .build();
             MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
-                    // Dodajemy klasy - encje
+            // Dodajemy klasy - encje
 
             Metadata metadata = metadataSources.buildMetadata();
             sessionFactory = metadata.buildSessionFactory();
