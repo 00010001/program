@@ -1,13 +1,10 @@
-package sample;
+package pl.sdacademy.tournamentmanager.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * Created by RENT on 2017-09-19.
- */
 @Entity
 public class Player {
     @Id
@@ -17,8 +14,12 @@ public class Player {
     private String lastName;
     private String username;
 
-    public Player() {
-    }
+    @OneToMany(mappedBy = "player1")
+    private Set<Match> matchesAsPlayer1 = new HashSet<>();
+    @OneToMany(mappedBy = "player2")
+    private Set<Match> matchesAsPlayer2 = new HashSet<>();
+
+    public Player() {}
 
     public Player(String firstName, String lastName, String username) {
         this.firstName = firstName;
@@ -26,7 +27,30 @@ public class Player {
         this.username = username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    void addMatchAsPlayer1(Match match) {
+        matchesAsPlayer1.add(match);
+    }
+
+    void addMatchAsPlayer2(Match match) {
+        matchesAsPlayer2.add(match);
+    }
+
+    public Set<Match> getMatches() {
+        Set<Match> matches = new HashSet<>();
+        matches.addAll(matchesAsPlayer1);
+        matches.addAll(matchesAsPlayer2);
+        return Collections.unmodifiableSet(matches);
     }
 }
