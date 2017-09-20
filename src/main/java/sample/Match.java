@@ -1,4 +1,4 @@
-package pl.sdacademy.tournamentmanager.entity;
+package sample;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

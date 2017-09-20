@@ -1,5 +1,4 @@
-package pl.sdacademy.tournamentmanager.entity;
-
+package sample;
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
