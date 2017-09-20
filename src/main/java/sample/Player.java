@@ -38,6 +38,10 @@ public class Player {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     void addMatchAsPlayer1(Match match) {
         matchesAsPlayer1.add(match);
     }
